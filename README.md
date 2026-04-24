@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# portfolio-nebula
 
-## Getting Started
+Rishabh Preethan's personal portfolio. Space-themed, Claude-inspired, built spec-driven.
 
-First, run the development server:
+> Single-page Next.js static site. Zero backend. Deployable on Vercel Hobby (free) tier.
+
+## Quickstart
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build & Deploy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build      # Next.js static production build
+npm run start      # Serve the production build locally
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Deploy: push to a GitHub repo, connect it in Vercel, done. No env vars required.
 
-## Learn More
+## Project Layout
 
-To learn more about Next.js, take a look at the following resources:
+```
+ARCHITECTURE.md      # HLD + LLD
+EVENT_MODEL.md       # client-side state transitions
+ALIGNMENT_SPEC.md    # the contract reviewer checks against
+STATUS.md            # epics, tasks, roles, status
+BRANCHING.md         # branch + PR flow
+agents/              # developer, reviewer, qa role specs
+reviews/             # one review file per feature
+qa/                  # one QA report + screenshots per feature
+prs/                 # PR body stubs to paste into GitHub
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+src/
+  app/               # routes, layout, globals
+  components/        # UI components (sections under components/sections)
+  data/profile.ts    # single source of truth for all copy
+  lib/motion.ts      # shared Framer Motion variants
+  styles/tokens.css  # design tokens (CSS vars)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+tests/flows/         # Playwright user-flow specs
+```
 
-## Deploy on Vercel
+## Spec-Driven Workflow
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Every feature branch goes through three roles:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Developer** implements the minimum code to meet the ticket's ACs.
+2. **Reviewer** audits against `ALIGNMENT_SPEC.md` and writes `reviews/<slug>.md`.
+3. **QA** runs Playwright flows from `tests/flows/` and writes `qa/<slug>.md`.
+
+Only then a PR is opened. See [BRANCHING.md](./BRANCHING.md) for the full flow.
+
+## Content
+
+All portfolio copy lives in [`src/data/profile.ts`](./src/data/profile.ts). Edit there, rebuild, redeploy.
+
+## License
+
+All rights reserved. Content belongs to Rishabh.
