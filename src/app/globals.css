@@ -1,26 +1,104 @@
 @import "tailwindcss";
+@import "../styles/tokens.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* Map design tokens into the Tailwind v4 theme so utilities like
+   bg-void, text-ink, border-orbit just work. §1.1 */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-void: var(--bg-void);
+  --color-nebula-1: var(--bg-nebula-1);
+  --color-nebula-2: var(--bg-nebula-2);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-dim: var(--ink-dim);
+
+  --color-starlight: var(--accent-starlight);
+  --color-plasma: var(--accent-plasma);
+
+  --color-orbit: var(--border-orbit);
+  --color-orbit-strong: var(--border-orbit-strong);
+
+  --font-serif: var(--font-instrument-serif);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* §1.2 — Base typography + resets */
+html {
+  background: var(--bg-void);
+  color: var(--ink);
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-void);
+  color: var(--ink);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-feature-settings: "ss01", "cv11";
+  min-height: 100dvh;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 1.0625rem;
+  }
+}
+
+/* §1.2 — Display type uses Instrument Serif */
+.font-display {
+  font-family: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+}
+
+/* §2.2 — Visible focus ring across the app */
+:focus-visible {
+  outline: 2px solid var(--accent-starlight);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-starlight);
+  color: var(--bg-void);
+}
+
+/* Page-wide subtle nebula backdrop. Content sits on top. §6.3 */
+.bg-nebula {
+  background:
+    radial-gradient(
+      80% 60% at 20% 10%,
+      color-mix(in oklab, var(--bg-nebula-1) 55%, transparent) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      60% 50% at 85% 80%,
+      color-mix(in oklab, var(--bg-nebula-2) 50%, transparent) 0%,
+      transparent 65%
+    ),
+    var(--bg-void);
+}
+
+/* Hide children until hydrated, for motion components that depend on JS.
+   Non-JS users still see content (SSR); this only prevents FOUC on motion-only chrome. */
+.motion-only {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .motion-only[data-motion-pending="true"] {
+    opacity: 0;
+  }
 }
