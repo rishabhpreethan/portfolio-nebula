@@ -1,6 +1,7 @@
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { Section } from "@/components/section";
+import { Starfield } from "@/components/starfield";
 import { profile, navSections } from "@/data/profile";
 
 // Epic 1.2 placeholder page — shows the layout shell: fixed Nav, scaffolded
@@ -9,6 +10,7 @@ import { profile, navSections } from "@/data/profile";
 export default function Home() {
   return (
     <>
+      <Starfield />
       <Nav />
       <main id="top" className="pt-[var(--nav-h)]">
         {/* Hero placeholder — Epic 2.2 will replace with the real hero. */}
