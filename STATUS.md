@@ -29,7 +29,7 @@ Single source of truth for what's done, in-flight, and queued. Updated after eac
 
 | ID | Task | Branch | Developer | Reviewer | QA | Status | PR |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2.1 | Starfield background canvas | `feature/landing-starfield` | claude-dev | claude-reviewer | claude-qa | 🟡 | — |
+| 2.1 | Starfield background canvas | `feature/landing-starfield` | ✅ claude-dev | ✅ claude-reviewer | ✅ claude-qa (manual smoke) | 🟢 ready-to-merge | `prs/landing-starfield.md` |
 | 2.2 | Hero section | `feature/landing-hero` | claude-dev | claude-reviewer | claude-qa | 🟡 | — |
 
 ---
@@ -68,3 +68,7 @@ Append after each transition. Format: `YYYY-MM-DD | task ID | role | note`.
 - 2026-04-24 | 1.2 | claude-reviewer | PASS w/ suggestions — mobile focus trap (S-1), aria-current (S-2), bundle watch (S-3)
 - 2026-04-24 | 1.2 | claude-qa | manual smoke PASS; Playwright deferred to 4.1
 - 2026-04-24 | 1.2 | claude | PR stub at prs/foundation-layout-shell.md
+- 2026-04-25 | 2.1 | claude-dev | starfield canvas implemented; tokens-only, rAF-capped, reduced-motion safe; build green
+- 2026-04-25 | 2.1 | claude-reviewer | PASS — §1.1, §1.4, §3.3, §3.5, §3.6, §4, §6, §7 all green; S-1 bundle watch, N-1 spec phrasing note
+- 2026-04-25 | 2.1 | claude-qa | manual smoke PASS for F-01 and F-06; Playwright deferred to 4.1
+- 2026-04-25 | 2.1 | claude | PR stub at prs/landing-starfield.md
