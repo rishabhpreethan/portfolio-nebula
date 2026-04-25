@@ -1,0 +1,39 @@
+/* Design tokens — single source of truth per ALIGNMENT_SPEC §1.
+   No component ever reads hex literals. Components use Tailwind utilities
+   backed by these via @theme in globals.css. */
+
+:root {
+  /* §1.1 — Color */
+  --bg-void: #0a0b14;
+  --bg-nebula-1: #1a1f3a;
+  --bg-nebula-2: #2d1b4e;
+
+  --ink: #f2ede4;
+  --ink-muted: #9a9388;
+  --ink-dim: #5c5a55;
+
+  --accent-starlight: #e8d9b8;
+  --accent-plasma: #7c5cff;
+
+  --border-orbit: rgba(242, 237, 228, 0.08);
+  --border-orbit-strong: rgba(242, 237, 228, 0.16);
+
+  /* §1.4 — Motion durations + easings */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-hover: cubic-bezier(0.2, 0, 0, 1);
+  --dur-entrance: 500ms;
+  --dur-hover: 200ms;
+  --dur-nav: 300ms;
+
+  /* Nav height — used by scroll-padding */
+  --nav-h: 64px;
+}
+
+/* §1.4 — Honor reduced motion globally */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-entrance: 0ms;
+    --dur-hover: 0ms;
+    --dur-nav: 0ms;
+  }
+}
