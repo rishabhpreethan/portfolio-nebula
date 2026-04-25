@@ -34,7 +34,7 @@ Single source of truth for what's done, in-flight, and queued. Updated after eac
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2.1 | Starfield (subtle, original) | `feature/landing-starfield` | ✅ | ✅ | ✅ | 🟢 merged — code superseded by 2.4 | [#3](https://github.com/rishabhpreethan/portfolio-nebula/pull/3) |
 | 2.2 | Hero (static, original) | `feature/landing-hero` | ✅ | ✅ | ✅ | 🟢 merged — code superseded by 2.5 | [#4](https://github.com/rishabhpreethan/portfolio-nebula/pull/4) |
-| 2.3 | Interaction shell — custom cursor, Lenis smooth scroll, scroll-progress bar, motion-store | `feature/landing-interaction-shell` | claude-dev | claude-reviewer | claude-qa | 🟡 | — |
+| 2.3 | Interaction shell — custom cursor, Lenis smooth scroll, scroll-progress bar, motion-store | `feature/landing-interaction-shell` | ✅ claude-dev | ✅ claude-reviewer | ✅ claude-qa (manual smoke) | 🟢 ready-to-merge | `prs/landing-interaction-shell.md` |
 | 2.4 | Reactive starfield — 3-layer parallax, cursor gravity-well, scroll-velocity drift (replaces 2.1 code) | `feature/landing-reactive-starfield` | claude-dev | claude-reviewer | claude-qa | 🟡 | — |
 | 2.5 | Hero cinematic — letter-reveal, mouse-parallax, magnetic chip, animated scroll-cue (replaces 2.2 code) | `feature/landing-hero-cinematic` | claude-dev | claude-reviewer | claude-qa | 🟡 | — |
 | 2.6 | Section reveal kit — `<Reveal>`, `<ParallaxLayer>`, `<Marquee>`, text-split util (replaces existing `<Section>`) | `feature/landing-reveal-kit` | claude-dev | claude-reviewer | claude-qa | 🟡 | — |
@@ -89,3 +89,7 @@ Append after each transition. Format: `YYYY-MM-DD | task ID | role | note`.
 - 2026-04-25 | 1.1, 1.2, 2.1, 2.2 | rishabh | merged PRs #1, #2, #3, #4 to main
 - 2026-04-25 | 0.4 | rishabh | direction pivot — restraint → cinematic. Spec amendments authorized.
 - 2026-04-25 | 0.4 | claude | rewrote ALIGNMENT_SPEC §1.4/§3/§5/§6/§8 + new §9/§10; rewrote EVENT_MODEL with cinematic-events + new state machines; updated ARCHITECTURE component tree + budgets; reorganized STATUS Epic 2 (2.1/2.2 marked merged but code-superseded; added 2.3–2.6)
+- 2026-04-25 | 2.3 | claude-dev | interaction shell implemented — Lenis installed; motion-store + cursor + scroll-shell + scroll-progress wired into root layout; build green; bundle 228.9 kB gzipped (+~7 kB)
+- 2026-04-25 | 2.3 | claude-reviewer | PASS — §1.1, §1.4, §2.10, §3.1, §4.6, §5.6, §6.6, §7.3, §7.6, §9.1, §9.3, §9.4, §10.1-§10.3 all green; two cosmetic notes, two future-polish suggestions
+- 2026-04-25 | 2.3 | claude-qa | manual smoke PASS for F-01, F-06, new F-09/F-10/F-11; Playwright deferred to 4.1
+- 2026-04-25 | 2.3 | claude | PR stub at prs/landing-interaction-shell.md

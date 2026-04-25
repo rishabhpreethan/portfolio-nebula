@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
 import "./globals.css";
 import { profile } from "@/data/profile";
+import { Cursor } from "@/components/cursor";
+import { ScrollProgress } from "@/components/scroll-progress";
+import { ScrollShell } from "@/components/scroll-shell";
 
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
@@ -41,7 +44,13 @@ export default function RootLayout({
       lang="en"
       className={`${instrumentSerif.variable} ${inter.variable}`}
     >
-      <body className="bg-nebula min-h-dvh antialiased">{children}</body>
+      <body className="bg-nebula min-h-dvh antialiased">
+        <ScrollShell>
+          <ScrollProgress />
+          <Cursor />
+          {children}
+        </ScrollShell>
+      </body>
     </html>
   );
 }
