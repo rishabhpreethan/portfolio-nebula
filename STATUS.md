@@ -21,7 +21,7 @@ Single source of truth for what's done, in-flight, and queued. Updated after eac
 | ID | Task | Branch | Developer | Reviewer | QA | Status | PR |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1.1 | Design system: tokens, fonts, globals | `feature/foundation-design-system` | ✅ claude-dev | ✅ claude-reviewer | ✅ claude-qa (pre-interactive) | 🟢 ready-to-merge | `prs/foundation-design-system.md` |
-| 1.2 | Layout shell: nav + footer | `feature/foundation-layout-shell` | claude-dev | claude-reviewer | claude-qa | 🟡 | — |
+| 1.2 | Layout shell: nav + footer | `feature/foundation-layout-shell` | ✅ claude-dev | ⚠️ claude-reviewer (3 SHOULD suggestions) | ✅ claude-qa (manual smoke) | 🟢 ready-to-merge | `prs/foundation-layout-shell.md` |
 
 ---
 
@@ -64,3 +64,7 @@ Append after each transition. Format: `YYYY-MM-DD | task ID | role | note`.
 - 2026-04-24 | 1.1 | claude-reviewer | PASS — all §8 MUSTs green, build-size advisory
 - 2026-04-24 | 1.1 | claude-qa | pre-interactive smoke checks PASS; Playwright deferred to Epic 4.1
 - 2026-04-24 | 1.1 | claude | PR stub written at prs/foundation-design-system.md; ready for Rishabh to open
+- 2026-04-24 | 1.2 | claude-dev | layout shell (nav, footer, Section wrapper) implemented; build green
+- 2026-04-24 | 1.2 | claude-reviewer | PASS w/ suggestions — mobile focus trap (S-1), aria-current (S-2), bundle watch (S-3)
+- 2026-04-24 | 1.2 | claude-qa | manual smoke PASS; Playwright deferred to 4.1
+- 2026-04-24 | 1.2 | claude | PR stub at prs/foundation-layout-shell.md
