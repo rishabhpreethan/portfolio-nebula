@@ -2,29 +2,19 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { Section } from "@/components/section";
 import { Starfield } from "@/components/starfield";
-import { profile, navSections } from "@/data/profile";
+import { Hero } from "@/components/sections/hero";
+import { navSections } from "@/data/profile";
 
-// Epic 1.2 placeholder page — shows the layout shell: fixed Nav, scaffolded
-// sections (one per nav link), Footer. Each Section gets real content in
-// Epic 2 (hero + starfield) and Epic 3 (about through contact).
+// Landing page composition. Sections after Hero remain placeholders until
+// Epic 3 fills them in (about, experience, projects, skills, education,
+// contact). Hero ships its <h1> in SSR HTML for §3.6 LCP.
 export default function Home() {
   return (
     <>
       <Starfield />
       <Nav />
       <main id="top" className="pt-[var(--nav-h)]">
-        {/* Hero placeholder — Epic 2.2 will replace with the real hero. */}
-        <section className="mx-auto flex min-h-[calc(100dvh-var(--nav-h))] max-w-6xl flex-col justify-center px-6">
-          <p className="text-ink-muted mb-6 text-xs uppercase tracking-[0.18em]">
-            portfolio · coming online
-          </p>
-          <h1 className="font-display text-ink text-6xl md:text-8xl">
-            {profile.name.toLowerCase()}
-          </h1>
-          <p className="text-ink-muted mt-4 max-w-xl text-lg md:text-xl">
-            {profile.headline.toLowerCase()}
-          </p>
-        </section>
+        <Hero />
 
         {navSections.map((s) => (
           <Section key={s.id} id={s.id} eyebrow={s.label} heading={s.label}>
