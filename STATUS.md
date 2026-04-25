@@ -30,7 +30,7 @@ Single source of truth for what's done, in-flight, and queued. Updated after eac
 | ID | Task | Branch | Developer | Reviewer | QA | Status | PR |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2.1 | Starfield background canvas | `feature/landing-starfield` | ✅ claude-dev | ✅ claude-reviewer | ✅ claude-qa (manual smoke) | 🟢 ready-to-merge | `prs/landing-starfield.md` |
-| 2.2 | Hero section | `feature/landing-hero` | claude-dev | claude-reviewer | claude-qa | 🟡 | — |
+| 2.2 | Hero section | `feature/landing-hero` | ✅ claude-dev | ✅ claude-reviewer | ✅ claude-qa (manual smoke) | 🟢 ready-to-merge | `prs/landing-hero.md` |
 
 ---
 
@@ -72,3 +72,8 @@ Append after each transition. Format: `YYYY-MM-DD | task ID | role | note`.
 - 2026-04-25 | 2.1 | claude-reviewer | PASS — §1.1, §1.4, §3.3, §3.5, §3.6, §4, §6, §7 all green; S-1 bundle watch, N-1 spec phrasing note
 - 2026-04-25 | 2.1 | claude-qa | manual smoke PASS for F-01 and F-06; Playwright deferred to 4.1
 - 2026-04-25 | 2.1 | claude | PR stub at prs/landing-starfield.md
+- 2026-04-25 | 2.1 | claude | branches + PRs pushed to origin (PRs #1, #2, #3)
+- 2026-04-25 | 2.2 | claude-dev | hero section implemented; SSR <h1>, Display XL clamp, open-to-work chip; build green
+- 2026-04-25 | 2.2 | claude-reviewer | PASS — §1.2, §3.6, §5, §6.6, §7 all green; S-1 bundle watch carries forward, S-2 cosmetic polish flagged
+- 2026-04-25 | 2.2 | claude-qa | manual smoke PASS for F-01; Playwright deferred to 4.1
+- 2026-04-25 | 2.2 | claude | PR stub at prs/landing-hero.md
